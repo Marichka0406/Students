@@ -72,6 +72,11 @@ function addToTable() {
 
   deleteButton.addEventListener("click", deleteItem);
 
+  status.addEventListener("click", function () {
+    statusAnimationEnabled = true;
+  });
+  
+
   closeModal();
 
   group.value=' ';
@@ -84,18 +89,6 @@ function addToTable() {
 okButton.addEventListener("click", addToTable);
 createButton.addEventListener("click", addToTable);
 
-let notificationStatus = document.querySelector('.notification-status');
-let animationEnabled = false;
-
-function animateStatus() {
-  if (animationEnabled && notificationStatus) {
-    if (notificationStatus.style.backgroundColor === "green") {
-      notificationStatus.style.backgroundColor = "#bbb";
-    } else {
-      notificationStatus.style.backgroundColor = "green";
-    }
-  }
-}
 
 
 
