@@ -200,70 +200,88 @@
       <section class="students">
         <h1 class="students__title">Students</h1>
         <button type="button" class="add-button">+</button>
-        <div class="add-student-modal-container">
-          <div class="overlay"></div>
-          <div class="add-student-modal-content">
-            <div class="add-student-modal-top">
-              <h2 class="add-student-title">Add student</h2>
-              <button class="add-student-modal-close" type="button">✖</button>
-            </div>
-            <hr />
-            <div class="add-student-modal-center">
-              <div class="group add-student-modal-text">
-                <span>Group</span>
-                <select class="group-combobox">
-                  <option value="" selected disabled>Select Group</option>
-                  <option value="PZ-21">PZ-21</option>
-                  <option value="PZ-22">PZ-22</option>
-                  <option value="PZ-23">PZ-23</option>
-                  <option value="PZ-24">PZ-24</option>
-                  <option value="PZ-25">PZ-25</option>
-                  <option value="PZ-26">PZ-26</option>
-                </select>
+        <form
+          id="studentForm"
+          action="https://formspree.io/f/xeqwzndb"
+          onsubmit="return false;"
+        >
+          <div class="add-student-modal-container">
+            <div class="overlay"></div>
+            <div class="add-student-modal-content">
+              <div class="add-student-modal-top">
+                <h2 class="add-student-title edit-student-title">
+                  Add student
+                </h2>
+                <button class="add-student-modal-close" type="button">✖</button>
               </div>
-              <div class="first-name add-student-modal-text">
-                <span>First name</span
-                ><input
-                  class="input-field first-name-input"
-                  type="text"
-                  name=""
-                  id=""
-                />
+              <hr />
+              <div class="add-student-modal-center">
+                <div class="group add-student-modal-text">
+                  <label
+                    >Group
+                    <select class="group-combobox" name="group" required>
+                      <option value="" selected disabled>Select Group</option>
+                      <option value="PZ-21">PZ-21</option>
+                      <option value="PZ-22">PZ-22</option>
+                      <option value="PZ-23">PZ-23</option>
+                      <option value="PZ-24">PZ-24</option>
+                      <option value="PZ-25">PZ-25</option>
+                      <option value="PZ-26">PZ-26</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="first-name add-student-modal-text">
+                  <label
+                    >First name
+                    <input
+                      class="input-field first-name-input"
+                      type="text"
+                      name="first_name"
+                      required
+                    />
+                  </label>
+                </div>
+                <div class="last-name add-student-modal-text">
+                  <label
+                    >Last name
+                    <input
+                      class="input-field last-name-input"
+                      type="text"
+                      name="last_name"
+                      required
+                    />
+                  </label>
+                </div>
+                <div class="gender add-student-modal-text">
+                  <label
+                    >Gender
+                    <select class="gender-combobox" name="gender" required>
+                      <option value="" selected disabled>Select Gender</option>
+                      <option value="M">M</option>
+                      <option value="F">F</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="birthday add-student-modal-text">
+                  <label
+                    >Birthday
+                    <input
+                      class="input-field birthday-input"
+                      type="date"
+                      name="birthday"
+                      required
+                    />
+                  </label>
+                </div>
               </div>
-              <div class="last-name add-student-modal-text">
-                <span>Last name</span
-                ><input
-                  class="input-field last-name-input"
-                  type="text"
-                  name=""
-                  id=""
-                />
+              <hr />
+              <div class="add-student-modal-bottom">
+                <button class="ok-btn">Ok</button>
+                <button class="create-btn save-btn">Create</button>
               </div>
-              <div class="gender add-student-modal-text">
-                <span>Gender</span>
-                <select class="gender-combobox">
-                  <option value="" selected disabled>Select Gender</option>
-                  <option value="M">M</option>
-                  <option value="F">F</option>
-                </select>
-              </div>
-              <div class="birthday add-student-modal-text">
-                <span>Birthday</span
-                ><input
-                  class="input-field birthday-input"
-                  type="date"
-                  name=""
-                  id=""
-                />
-              </div>
-            </div>
-            <hr />
-            <div class="add-student-modal-bottom">
-              <button class="ok-btn" type="button">Ok</button>
-              <button class="create-btn" type="button">Create</button>
             </div>
           </div>
-        </div>
+        </form>
         <table class="students__table">
           <tr class="table-row">
             <th><input type="checkbox" /></th>
@@ -276,10 +294,10 @@
           </tr>
           <tr class="table-row">
             <td><input class="checkbox" type="checkbox" /></td>
-            <td class="table-text">KN-21</td>
-            <td class="table-text">John Smith</td>
-            <td class="table-text">M</td>
-            <td class="table-text">2004-05-11</td>
+            <td class="group-name">PZ-21</td>
+            <td class="name">John Smith</td>
+            <td class="gender-type">M</td>
+            <td class="birthday-date">2004-05-11</td>
             <td><span class="status"></span></td>
             <td>
               <div class="options">
@@ -290,10 +308,10 @@
           </tr>
           <tr class="table-row">
             <td><input type="checkbox" /></td>
-            <td class="table-text">KN-22</td>
-            <td class="table-text">Ann Bond</td>
-            <td class="table-text">F</td>
-            <td class="table-text">2004-04-24</td>
+            <td class="group-name">PZ-22</td>
+            <td class="name">Ann Bond</td>
+            <td class="gender-type">F</td>
+            <td class="birthday-date">2004-04-24</td>
             <td><span class="status"></span></td>
             <td>
               <div class="options">
@@ -326,5 +344,6 @@
     <script src="js/notifications.js"></script>
     <script src="js/add-students.js"></script>
     <script src="js/delete-student.js"></script>
+    <script src="js/edit-student.js"></script>
   </body>
 </html>

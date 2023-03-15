@@ -7,8 +7,8 @@ let deleteElement = null;
 
 function deleteItem(event) {
   deleteElement = event.target; 
-  let parent = deleteElement.parentNode.parentNode.parentNode;
-  warningMessage.textContent = `Are you sure you want to delete user ?`;
+  let userName=deleteElement.closest("tr").querySelector(".name");
+  warningMessage.textContent = `Are you sure you want to delete user ${userName.textContent}?`;
   warningContainer.style.display = "block";
   warningOkButton.addEventListener("click", confirmDelete); 
 }

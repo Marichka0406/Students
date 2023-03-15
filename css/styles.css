@@ -21,6 +21,8 @@
   background-color: var(--header-background-color);
   padding: 10px;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header__cms {
@@ -264,14 +266,14 @@ li {
 }
 
 .group-combobox {
-  margin-left: 48px;
+  margin-left:55px;
   border-color: #bbb;
   height: 30px;
   width: 180px;
 }
 
 .gender-combobox {
-  margin-left: 36px;
+  margin-left:42px;
   border-color: #bbb;
   height: 30px;
   width: 180px;
@@ -334,7 +336,7 @@ td {
   transform: translate(-50%, -50%);
   background-color: #fff;
   width: 550px;
-  height: 250px;
+  height: 270px;
 }
 
 .warning-modal-top {
@@ -366,9 +368,10 @@ td {
   padding-left: 10px;
   padding-top: 40px;
   padding-right: 10px;
-  padding-bottom: 60px;
-  font-size: 28px;
+  padding-bottom: 70px;
+  font-size: 24px;
   font-weight: 600;
+  height:150px;
   text-align: center;
 }
 
@@ -378,6 +381,7 @@ td {
   gap: 20px;
   padding-top: 15px;
   padding-right: 15px;
+  height:80px;
 }
 
 .edit-button {
@@ -418,6 +422,18 @@ td {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.ok-btn:hover,
+.create-btn:hover,
+.ok-warning-btn:hover,
+.cancel-btn:hover,
+.add-student-modal-close:hover,
+.warning-modal-close:hover,
+.add-button:hover,
+.edit-button:hover,
+.delete-button:hover {
+  background-color:gray;
+  color:white;
 }
 
 .ok-warning-btn,
