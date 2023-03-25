@@ -4,26 +4,37 @@ let editElement = null;
 
 function editStudent(event){
     toAdd = false;
-    title.textContent="Edit student";  
-    saveButton.textContent="Save";
-    editElement=event.target;
-    group.value = editElement.closest("tr").querySelector(".group-name").textContent;
-    let studentName=editElement.closest("tr").querySelector(".name");
+    title.textContent = "Edit student";
+    saveButton.textContent = "Save";
+    editElement = event.target.closest("tr"); 
+    group.value = editElement.querySelector(".group-name").textContent;
+    let studentName = editElement.querySelector(".name");
     let arr = studentName.textContent.split(" ");
-    firstName.value= arr[0];
+    firstName.value = arr[0];
     lastName.value = arr[1];
-    gender.value = editElement.closest("tr").querySelector(".gender-type").textContent;
-    birthday.value = editElement.closest("tr").querySelector(".birthday-date").textContent;
+    gender.value = editElement.querySelector(".gender-type").textContent;
+    birthday.value = editElement.querySelector(".birthday-date").textContent;
     modalContainer.style.display = "block";
 }
 
 
 
 function confirmEdit(){
-    student.group=editElement.closest("tr").querySelector(".group-name").textContent=group.value;
-    student.name=editElement.closest("tr").querySelector(".name").textContent=`${firstName.value} ${lastName.value}`;
-    student.gender=editElement.closest("tr").querySelector(".gender-type").textContent=gender.value;
-    student.birthday=editElement.closest("tr").querySelector(".birthday-date").textContent=birthday.value;
+    editElement.closest("tr").querySelector(".group-name").textContent=group.value;
+    editElement.closest("tr").querySelector(".name").textContent=`${firstName.value} ${lastName.value}`;
+    editElement.closest("tr").querySelector(".gender-type").textContent=gender.value;
+    editElement.closest("tr").querySelector(".birthday-date").textContent=birthday.value;
+
+    let student = {
+        group: group.value,
+        firstName: firstName.value,
+        lastName: lastName.value,
+        gender: gender.value,
+        birthday: birthday.value
+    };
+    let jsonString = JSON.stringify(student);
+    console.log(jsonString);
+
     modalContainer.style.display = "none";
 
 }

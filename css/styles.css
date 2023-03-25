@@ -5,7 +5,7 @@
 }
 
 :root {
-  --light-text-color: white;
+  --light-text-color:white;
   --header-background-color: gray;
   --nav-current-page-link-color: black;
   --nav-link-color: gray;
@@ -88,11 +88,24 @@
   position: absolute;
   display: inline-block;
   border-radius: 50%;
-  height: 10px;
-  width: 10px;
-  color: #bbb;
-  background-color: var(--non-active-status-color);
+  height: 8px;
+  width: 8px;
+  color: #bf0b0b;
+  background-color:  #bf0b0b;
   z-index: 1;
+  animation: notification-animation 2s infinite;
+}
+
+@keyframes notification-animation {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
 
 .notification-container {
