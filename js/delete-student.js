@@ -18,6 +18,13 @@ function confirmDelete() {
   parent.remove();
   warningContainer.style.display = "none";
   warningMessage.textContent = " ";
+  hiddenInput.value--;
+  let userName=deleteElement.closest("tr").querySelector(".name");
+  let firstName = userName.textContent.split(" ")[0];
+  let lastName = userName.textContent.split(" ")[1];
+  deleteStudent(firstName, lastName);
+  console.log(`Deleted student ${firstName} ${lastName}`);
+  console.log(students);
   warningOkButton.removeEventListener("click", confirmDelete);
 }
 
@@ -35,3 +42,13 @@ function cancelDelete() {
 warningCloseButton.addEventListener("click", cancelDelete);
 
 warningCancelButton.addEventListener("click", cancelDelete);
+
+function deleteStudent(firstName, lastName) {
+  let index = students.findIndex(s => s.firstName === firstName && s.lastName === lastName);
+  if (index !== -1) {
+    students.splice(index, 1);
+    for (let i = index; i < students.length; i++) {
+      students[i].id = i + 1;
+    }
+  }
+}

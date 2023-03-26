@@ -1,4 +1,3 @@
-
 let modalContainer = document.querySelector('.add-student-modal-container');
 let modalOpenButton = document.querySelector('.add-button');
 let addStudentTitle = document.querySelector(".add-student-title");
@@ -9,10 +8,27 @@ let lastName = document.querySelector('.last-name-input');
 let gender = document.querySelector('.gender-combobox');
 let birthday = document.querySelector('.birthday-input');
 let form = document.getElementById('studentForm');
-let hiddenInput = document.getElementsByName('id')[0];
+let hiddenInput = document.getElementById('hidden-input');
 const firstNameRegex = /^(?!-)[a-zA-Z-]{2,50}(?<!-)$/;
 const lastNameRegex = /^(?!-)[a-zA-Z-]{2,50}(?<!-)$/;
-
+let students = [
+  {
+    group: 'PZ-21',
+    firstName: 'John',
+    lastName:'Smith',
+    gender: 'M',
+    birthday: '2004-05-11',
+    id: 1
+  },
+  {
+    group: 'PZ-22',
+    firstName: 'Ann',
+    lastName: 'Bond',
+    gender: 'F',
+    birthday: '2004-04-24',
+    id: 2
+  },
+]; 
 function openModal() {
   toAdd = true;
   group.selectedIndex = 0;
@@ -41,8 +57,7 @@ let createButton = document.querySelector('.create-btn');
 function addToTable() {
 
   hiddenInput.value++;
-  console.log(hiddenInput.value);
-
+  
   let table = document.querySelector('.students__table');
 
   let newRow = document.createElement('tr');
@@ -94,10 +109,14 @@ function addToTable() {
     firstName: firstName.value,
     lastName: lastName.value,
     gender: gender.value,
-    birthday: birthday.value
+    birthday: birthday.value,
+    id:hiddenInput.value
   };
+  
   let jsonString = JSON.stringify(student);
   console.log(jsonString);
+  students.push(student); 
+  console.log(students);
 
   deleteButton.addEventListener("click", deleteItem);
   editButton.addEventListener("click", editStudent);
@@ -108,14 +127,14 @@ function addToTable() {
 
 okButton.addEventListener("click", function () {
   if (!firstNameRegex.test(firstName.value)) {
-    firstName.setCustomValidity("Некоректно введено ім'я!");
+    firstName.setCustomValidity("Incorrect first name!");
   }
   else {
     firstName.setCustomValidity('');
   }
   firstName.reportValidity();
   if (!lastNameRegex.test(lastName.value)) {
-    lastName.setCustomValidity("Некоректно введено прізвище!");
+    lastName.setCustomValidity("Incorrect last name!");
   }
   else {
     lastName.setCustomValidity('');
@@ -133,14 +152,14 @@ okButton.addEventListener("click", function () {
 
 createButton.addEventListener("click", function () {
   if (!firstNameRegex.test(firstName.value)) {
-    firstName.setCustomValidity("Некоректно введено ім'я!");
+    firstName.setCustomValidity("Incorrect first name!");
   }
   else {
     firstName.setCustomValidity('');
   }
   firstName.reportValidity();
   if (!lastNameRegex.test(lastName.value)) {
-    lastName.setCustomValidity("Некоректно введено прізвище!");
+    lastName.setCustomValidity("Incorrect last name!");
   }
   else {
     lastName.setCustomValidity('');
@@ -155,11 +174,4 @@ createButton.addEventListener("click", function () {
     }
   }
 });
-
-
-
-
-
-
-
 
